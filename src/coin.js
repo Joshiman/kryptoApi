@@ -18,7 +18,7 @@ const Coin = ({
           <p className="coin-symbol">{symbol}</p>
         </div>
         <div className="coin-data">
-          <p className="coin-price">{current_price} NOK</p>
+          <p className="coin-price">{current_price.toLocaleString()} NOK</p>
           <p className="coin-volume">{market_cap.toLocaleString()}</p>
 
           {price_change_percentage_24h < 0 ? (
@@ -30,7 +30,9 @@ const Coin = ({
               {price_change_percentage_24h.toFixed(2)}%
             </p>
           )}
-          <p className="coin-marketcap">{total_volume}</p>
+          <p className="coin-marketcap">
+            {(total_volume || NaN).toLocaleString()}
+          </p>
         </div>
       </div>
     </div>
